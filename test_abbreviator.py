@@ -29,7 +29,6 @@ class TestAbbreviator:
     @pytest.mark.parametrize("inp, target, expected", [
         ("fantastic", 5, "fanta"),
         ("fantastic", 8, "fantasti"),
-        ("fantastic", 8, "fantasti"),
     ])
     def test_abbreviate_abbreviates_given_single_word(self, inp, target, expected):
         sut = Abbreviator(target_length=target)
@@ -50,4 +49,4 @@ class TestAbbreviator:
     ])
     def test_new_instance_raises_value_error_given_negative_target(self, target_length):
         with pytest.raises(ValueError, match='target_length must be greater than 0.'):
-            Abbreviator(target_length=-1)
+            Abbreviator(target_length)
